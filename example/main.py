@@ -46,7 +46,7 @@ except:
     
 deleteEmpty(df) #Delete the non-important data, aka months with zero fires.
 
-createSubset(df) #Creates a subset of the DataFrame with only months and number of fires, and translates them from portuguese to english.
+createSubset(df) #Creates a subset of the DataFrame with only months and number of fires, translates them from portuguese to english, and then prints the DataFrame.
 
     
     
