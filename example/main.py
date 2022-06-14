@@ -35,7 +35,7 @@ def translateMonths(data):
     for x, m in enumerate(fpm['month']):
         translated = translator2.translate(m)  
         month1 = translated.text    
-        fpm.at[i, 'month'] = month1
+        fpm.at[x, 'month'] = month1
     print(fpm)
 
 #Call functions below this point 
