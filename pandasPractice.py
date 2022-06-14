@@ -21,7 +21,10 @@ def cleaningExample(num): #Num represents which example you'd like to view.
  
   df = pd.read_csv('data.csv') #Reads the comma seperated value file and transforms it into a Pandas DataFrame named df.
   #This dataset was obtained from W3Schools and can be found on their website.
-    
+  
+  ddf = pd.read_csv('dirtydata.csv') #Reads the comma seperated value file of error-filled data and transforms it into a Pandas DataFrame named ddf.
+  #This dataset was obtained from W3Schools and can be found on their website.
+  
   if(num == 1):
     new_df = df.dropna() #Creates a new DataFrame with the empty cells and their rows removed.
     print(new_df.to_string()) #Prints the new DataFrame.
@@ -40,8 +43,8 @@ def cleaningExample(num): #Num represents which example you'd like to view.
     print(df.to_string()) #Prints the modified DataFrame.
     
   if(num == 5):
-    df['Date'] = pd.to_datetime(df['Date']) #Attempts to convert all cells in the "Date" column into dates.
-    print(df.to_string()) #Prints the modified DataFrame. 
+    ddf['Date'] = pd.to_datetime(ddf['Date']) #Attempts to convert all cells in the "Date" column into dates.
+    print(ddf.to_string()) #Prints the modified DataFrame. 
     #The resulting output will contain "NaT" meaning "Not a Time", due to the intentional errors in the dataset.
     
 #Call any functions below this line in order to avoid non defined function errors during compilation.
