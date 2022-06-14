@@ -11,9 +11,24 @@ def basicFunctionsExample():
   print(df.info()) #Prints informtaion about the dataset, including number of columns, rows, data types, and non null counts.
   print(df.head(10)) #Prints the first 10 entries in the DataFrame.
   print(df.tail(10)) #Prints the last 10 entries in the DataFrame.
+  
+
 
   
 #Cleaning datasets
 def cleaningExample():
+  df = pd.read_csv('data.csv') #Reads the comma seperated value file and transforms it into a Pandas DataFrame named df.
+  #This dataset was obtained from W3Schools and can be found on their website.
+  
+  new_df = df.dropna() #Creates a new DataFrame with the empty cells and their rows removed.
+  print(new_df.to_string()) #Prints the new DataFrame.
+  
+  df.fillna(130, inplace = True) #Replaces empty values in the DataFrame with the value 130, does not return a NEW DataFrame, only changes the original.
+  
+  df["Calories"].fillna(130, inplace = True) #Replaces empty values in the "Calories" column with the value 130, does not return a new DataFrame.
+  
+  x = df["Calories"].mean() #Creates a variable, X, that is the mean of all values in the "Calories" column. The same can be done with median and mode funtions.
+
+  df["Calories"].fillna(x, inplace = True) #Replaces all empty cells in the "Calories" column with the value of x, which is the average of the "Calories" column.
     
 #Call any functions below this line in order to avoid non defined function errors during compilation.
