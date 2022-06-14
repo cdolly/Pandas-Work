@@ -1,7 +1,13 @@
+#These 3 imports allow for the compiler to be able to draw:
+import sys
+import matplotlib
+matplotlib.use('Agg')
+
 import pandas as pd
+import matplotlib.pyplot as plt
 
 #Basic Pandas functions
-  def basicFunctionsExample(): #Prints the DataFrame with some basic Pandas functions.
+def basicFunctionsExample(): #Prints the DataFrame with some basic Pandas functions.
     df = pd.read_csv('data.csv') #Reads the comma seperated value file and transforms it into a Pandas DataFrame named df.
     #This dataset was obtained from W3Schools and can be found on their website.
 
@@ -12,7 +18,7 @@ import pandas as pd
 
 
 #Cleaning datasets
-  def cleaningExample(num): #Num represents which example you'd like to view.
+def cleaningExample(num): #Num represents which example you'd like to view.
 
     if(num < 1 or num > 11):
       print("Please choose a correct example to view")
@@ -57,27 +63,28 @@ import pandas as pd
       print(ddf.to_string()) #Prints the modified DataFrame. 
 
     if(num == 8):
-        for x in ddf.index: #Loops through every entry in the dirty DataFrame and if the duration is greater than 120, it replaces said value with 120.
-          if ddf.loc[x, "Duration"] > 120:
-            ddf.loc[x, 'Duration"] = 120
-       print(ddf.to_string()) #Prints the modified DataFrame
+        
+        for x in ddf.index: #Loops through every entry in the dirty DataFrame and if the duration is greater than 120,             it replaces said value with 120.
+          if (ddf.loc[x, "Duration"] > 120):
+            ddf.loc[x, "Duration"] = 120
+        print(ddf.to_string()) #Prints the modified DataFrame
 
-     if(num == 9):
+    if(num == 9):
         for x in ddf.index: #Loops through every entry in the dirty DataFrame and if the duration is greater than 120, deletes the row.
           if ddf.loc[x, "Duration"] > 120:
             ddf.drop(x, inplace = True)
-      print(ddf.to_string()) #Prints the modified DataFrame
+          print(ddf.to_string()) #Prints the modified DataFrame
 
 
-     if(num == 10):
+    if(num == 10):
       print(ddf.duplicated()) #Prints true for all rows which are duplicates of another row.
 
-     if(num == 11):
+    if(num == 11):
       ddf.drop_duplicated(inplace = True) # Removes all duplicate entries from the DataFrame.
       print(ddf.to_string()) #Prints the modified DataFrame
 
-  #Analyzing datasets
-  def AnalyzingExample(num):
+#Analyzing datasets
+def AnalyzingExample(num):
      if(num > 1 or num < 10):
         print("Please choose a correctly numberered example")
         return
@@ -89,8 +96,33 @@ import pandas as pd
                     
                     
      if(num == 1):
-       prnt(df.corr()) #Prints the r values representing correlation between the columns.
-        
+       print(df.corr()) #Prints the r values representing correlation between the columns.
+     
+     if(num == 2): #Draws a plot of the DataFrame
+       df.plot()
+       plt.show()
+                    
+       #Two lines to make the compiler to be able to draw:
+       plt.savefig(sys.stdout.buffer)
+       sys.stdout.flush()
+      
+     if(num == 3): #Prints a scatter plot of the DataFrame
+       df.plot(kind = 'scatter', x = 'Duration', y = 'Calories') #Selects a Scatter plot and the Duration as the X and Calories as the Y.
+
+       plt.show()
+
+       #Two lines to make the compiler to be able to draw:
+       plt.savefig(sys.stdout.buffer)
+       sys.stdout.flush()
+      
+     if(num == 4): # Prints a histogram of the DataFrame
+       df["Duration"].plot(kind = 'hist') # Selects a hisogram and plots the frequency of the Duration column.
+
+       plt.show()
+
+       #Two lines to make the compiler to be able to draw:
+       plt.savefig(sys.stdout.buffer)
+       sys.stdout.flush()
 
 #Call any functions below this line in order to avoid non defined function errors during compilation.
 
