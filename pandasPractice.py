@@ -21,7 +21,7 @@ def basicFunctionsExample(): #Prints the DataFrame with some basic Pandas functi
 def cleaningExample(num): #Num represents which example you'd like to view.
 
     if(num < 1 or num > 11):
-      print("Please choose a correct example to view")
+      print("Please choose a correctly numbered example to view")
       return
 
     df = pd.read_csv('data.csv') #Reads the comma seperated value file and transforms it into a Pandas DataFrame named df.
@@ -86,7 +86,7 @@ def cleaningExample(num): #Num represents which example you'd like to view.
 #Analyzing datasets
 def AnalyzingExample(num):
      if(num > 1 or num < 10):
-        print("Please choose a correctly numberered example")
+        print("Please choose a correctly numbered example")
         return
      df = pd.read_csv('data.csv') #Reads the comma seperated value file and transforms it into a Pandas DataFrame named df.
      #This dataset was obtained from W3Schools and can be found on their website.
