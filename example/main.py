@@ -39,5 +39,4 @@ except:
 deleteEmpty(df) #Delete the non-important data, aka rows containing months with zero fires.
 
 createSubset(df) #Creates a subset of the DataFrame with only months and number of fires, translates them from portuguese to english, and then prints the DataFrame.
-print(df.to_string())
 
